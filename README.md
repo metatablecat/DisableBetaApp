@@ -1,4 +1,4 @@
-To use, download the latest Release and run the program. This will install the web protocol directly.
+To use, [download the latest Release](https://github.com/metatablecat/DisableBetaApp/raw/master/DisableBetaApp.exe) and run the program. This will install the web protocol directly.
 (Don't move the executable after you've done this, you'll break something)
 
 ## Technical Explanation
