@@ -26,6 +26,17 @@ namespace DisableBetaApp
             ProtocolCmd.SetValue(_, "\"" + root + "\" %1");
         }
 
+        static string GetVersion()
+        {
+            return (string)GetSubKey(
+                Registry.CurrentUser,
+                "SOFTWARE",
+                "ROBLOX Corporation",
+                "Environments",
+                "roblox-player"
+            ).GetValue("version");
+        }
+
         static void FindAndLaunchRoblox(string[] args, bool playGame)
         {
             string launchargs;
@@ -38,13 +49,7 @@ namespace DisableBetaApp
 
             // better workflow, grab onto the version number
             // should fix some issues with updating
-            var ClientVersion = GetSubKey(
-                Registry.CurrentUser,
-                "SOFTWARE",
-                "ROBLOX Corporation",
-                "Environments",
-                "roblox-player"
-            ).GetValue("version");
+            var ClientVersion = GetVersion();
 
             string LocalAppDataEnv = System.Environment.GetEnvironmentVariable("LOCALAPPDATA");
             string RobloxExecutable = LocalAppDataEnv + "\\Roblox\\Versions\\" + ClientVersion + "\\RobloxPlayerLauncher.exe";
@@ -65,6 +70,17 @@ namespace DisableBetaApp
             // now we can change the key to this program
             Console.Write("Setting startup registry keys...");
             SetLaunchArg(System.Environment.ProcessPath);
+
+            // if it updated, we need to remove the old process because Roblox is funky
+            string newVersion = GetVersion();
+            if (newVersion != ClientVersion)
+            {
+                // remove the folder if roblox didn't do it
+                if (Directory.Exists(ClientVersion))
+                {
+                    Directory.Delete(ClientVersion, true);
+                }
+            }
         }
 
         static void Main(string[] args)
