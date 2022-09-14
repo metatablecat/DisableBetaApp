@@ -5,6 +5,11 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <PublishSingleFile>true</PublishSingleFile>
     <PublishTrimmed>true</PublishTrimmed>
+    <ApplicationIcon>Logo.new.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Logo.new.ico" />
+  </ItemGroup>
 
 </Project>

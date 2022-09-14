@@ -24,6 +24,10 @@ namespace DisableBetaApp
 
             RegistryKey ProtocolCmd = GetSubKey(Protocol, "shell", "open", "command");
             ProtocolCmd.SetValue(_, "\"" + root + "\" %1");
+
+            // set protocol image
+            RegistryKey Icon = GetSubKey(Protocol, "DefaultIcon");
+            Icon.SetValue(_, root);
         }
 
         static string GetVersion()
