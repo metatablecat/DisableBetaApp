@@ -14,7 +14,7 @@ namespace DisableBetaApp
             return key.CreateSubKey(constructedPath, RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryOptions.None);
         }
 
-        static void SetLaunchArg(string root)
+        static void SetLaunchReg(string root)
         {
             const string _ = "";
             RegistryKey Classes = GetSubKey(Registry.CurrentUser, "SOFTWARE", "Classes");
@@ -40,6 +40,35 @@ namespace DisableBetaApp
                 "roblox-player"
             ).GetValue("version");
         }
+        
+        static string? FindLauncherPath(string installFolder)
+        {
+            foreach (string i in Directory.EnumerateDirectories(installFolder, "version-*"))
+            {
+                string path = i + "\\RobloxPlayerLauncher.exe";
+                if (File.Exists(path))
+                {
+                    return path;
+                }
+            }
+        }
+
+        static string FindRoblox()
+        {
+            string ProgramFilesEnv = System.Environment.GetEnvironmentVariable("ProgramFiles(x86)");
+            string ProgramFilesFolder = LocalAppDataEnv + "\\Roblox\\Versions";
+            if (FindLauncherPath(ProgramFilesFolder) is string path)
+            {
+                return path;
+            }
+            
+            string LocalAppDataEnv = System.Environment.GetEnvironmentVariable("LOCALAPPDATA");
+            string LocalAppDataFolder = LocalAppDataEnv + "\\Roblox\\Versions";
+            if (FindLauncherPath(LocalAppDataFolder) is string path)
+            {
+                return path;
+            }
+        }
 
         static void FindAndLaunchRoblox(string[] args, bool playGame)
         {
@@ -50,17 +79,10 @@ namespace DisableBetaApp
             } else {
                 launchargs = "--play";
             }
-
-            // better workflow, grab onto the version number
-            // should fix some issues with updating
-            var ClientVersion = GetVersion();
-
-            string LocalAppDataEnv = System.Environment.GetEnvironmentVariable("LOCALAPPDATA");
-            string AppFolder = LocalAppDataEnv + "\\Roblox\\Versions\\" + ClientVersion;
-            string RobloxExecutable =  AppFolder + "\\RobloxPlayerLauncher.exe";
-
+            
             // we need to set the key back to its old value temporarily to trick Roblox into thinking it's installed
-            SetLaunchArg(RobloxExecutable);
+            string RobloxExecutable = FindRoblox();
+            SetLaunchReg(RobloxExecutable);
 
             var startInfo = new ProcessStartInfo
             {
@@ -74,7 +96,7 @@ namespace DisableBetaApp
 
             // now we can change the key to this program
             Console.Write("Setting startup registry keys...");
-            SetLaunchArg(System.Environment.ProcessPath);
+            SetLaunchReg(System.Environment.ProcessPath);
         }
 
         static void Main(string[] args)
