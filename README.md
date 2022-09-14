@@ -1,6 +1,5 @@
-To use, download the latest Release and override the `roblox-player` protocol in your browser.
-
-*Pull requests are welcome on trying to do this automatically since it gets overriden by the Roblox Launcher*
+To use, download the latest Release and run the program. This will install the web protocol directly.
+(Don't move the executable after you've done this, you'll break something)
 
 ## Technical Explanation
 
@@ -18,5 +17,3 @@ gameinfo was shrunk because its an auth ticket lol.
 Most of this data is important, but the one we're interested in is `LaunchExp` at the end, when this is set to `InApp`, it enables the Beta App. If we set it instead to `InBrowser`, the beta app is disabled.
 
 Now, if you start the same process with this tool, it takes that massive block of text and changes `LaunchExp:InApp` to `LaunchExp:InBrowser`, then starts the launcher with the modified data.
-
-It's possible to have the `roblox-player` protocol automatically start this tool without needing it to be set on the browser level, however Roblox changes it back when the client starts, and there's no easy way to detect when that happens (Pull Request Welcome)
