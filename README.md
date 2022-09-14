@@ -12,7 +12,7 @@ When you start a game on `roblox.com`, your web browser is being silently redire
 
 For exmaple, if you type `roblox-player://1` into your URL bar, you can start Roblox (although it wont be able to do anything since no data is sent to the launcher.)
 
-This protocol also has some useful data that's important for the launcher to utilise, when you start game, the protocol is given this wall of text
+This protocol also has some useful data that's important for the launcher to utilise, when you start game, the launcher is given something along the lines of this wall of text
 ```
 roblox-player:1+launchmode:play+gameinfo:0+launchtime:1663127725140+placelauncherurl:https%3A%2F%2Fassetgame.roblox.com%2Fgame%2FPlaceLauncher.ashx%3Frequest%3DRequestGame%26browserTrackerId%3D130033680605%26placeId%3D6708206173%26isPlayTogetherGame%3Dfalse+browsertrackerid:130033680605+robloxLocale:en_us+gameLocale:en_us+channel:+LaunchExp:InApp
 
