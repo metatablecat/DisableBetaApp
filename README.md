@@ -1,6 +1,8 @@
 To use, [download the latest Release](https://github.com/metatablecat/DisableBetaApp/raw/master/DisableBetaApp.exe) and run the program. This will install the web protocol directly.
 (Don't move the executable after you've done this, you'll break something)
 
+The app also requires Microsoft's [NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime?cid=getdotnetcore)
+
 ## Technical Explanation
 
 When you start a game on `roblox.com`, your web browser is being silently redirected to `roblox-player://...`, this triggers modern web browsers to start what is known as an `App Protocol`, that then starts the launcher.
