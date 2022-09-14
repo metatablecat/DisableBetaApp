@@ -21,3 +21,5 @@ gameinfo was shrunk because its an auth ticket lol.
 Most of this data is important, but the one we're interested in is `LaunchExp` at the end, when this is set to `InApp`, it enables the Beta App. If we set it instead to `InBrowser`, the beta app is disabled.
 
 Now, if you start the same process with this tool, it takes that massive block of text and changes `LaunchExp:InApp` to `LaunchExp:InBrowser`, then starts the launcher with the modified data.
+
+![Logo](assets/logo/densegreenalpha.png)
