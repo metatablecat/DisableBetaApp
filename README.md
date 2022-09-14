@@ -3,6 +3,8 @@ To use, [download the latest Release](https://github.com/metatablecat/DisableBet
 
 The executable is slightly large due to internal packages (NET 6 Standalone building isn't perfect, but I want anyone to be able to run it)
 
+## If Roblox updates, it undoes the patch because a new installer process gets started that cant be hooked onto, just run the BetaApp Disabler progran again to reapply registry patches
+
 ## Technical Explanation
 
 When you start a game on `roblox.com`, your web browser is being silently redirected to `roblox-player://...`, this triggers modern web browsers to start what is known as an `App Protocol`, that then starts the launcher.
