@@ -1,7 +1,7 @@
 To use, [download the latest Release](https://github.com/metatablecat/DisableBetaApp/raw/master/DisableBetaApp.exe) and run the program. This will install the web protocol directly.
 (Don't move the executable after you've done this, you'll break something)
 
-The app also requires Microsoft's [NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime?cid=getdotnetcore)
+The app also requires Microsoft's [NET 6 Console Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime?cid=getdotnetcore)
 
 ## Technical Explanation
 
