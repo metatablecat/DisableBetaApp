@@ -6,7 +6,7 @@ To use, download the latest Release and override the `roblox-player` protocol in
 
 When you start a game on `roblox.com`, your web browser is being silently redirected to `roblox-player://...`, this triggers modern web browsers to start what is known as an `App Protocol`, that then starts the launcher.
 
-For exmaple, if you type `roblox-player://1` into your URL bar, you can start Roblox (although it wont be able to do anything since no data is sent to the launcher.)
+For example, if you type `roblox-player://1` into your URL bar, you can start Roblox (although it won't be able to do anything since no data is sent to the launcher.)
 
 This protocol also has some useful data that's important for the launcher to utilise, when you start game, the launcher is given something along the lines of this wall of text
 ```
@@ -15,8 +15,8 @@ roblox-player:1+launchmode:play+gameinfo:0+launchtime:1663127725140+placelaunche
 gameinfo was shrunk because its an auth ticket lol.
 ```
 
-Most of this data is important, but the one we're interested in is `LaunchExp` at the end, when this is set to `InApp`, it enables the Beta App. If we set it instead to `InBrowser`, the beta app disables.
+Most of this data is important, but the one we're interested in is `LaunchExp` at the end, when this is set to `InApp`, it enables the Beta App. If we set it instead to `InBrowser`, the beta app is disabled.
 
 Now, if you start the same process with this tool, it takes that massive block of text and changes `LaunchExp:InApp` to `LaunchExp:InBrowser`, then starts the launcher with the modified data.
 
-Its possible to have the `roblox-player` protocol automatically start this tool without needing it to be set on the browser level, however Roblox changes it back when the client starts, and there's no easy way to detect when that happens (Pull Request Welcome)
+It's possible to have the `roblox-player` protocol automatically start this tool without needing it to be set on the browser level, however Roblox changes it back when the client starts, and there's no easy way to detect when that happens (Pull Request Welcome)
