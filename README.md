@@ -22,4 +22,4 @@ Most of this data is important, but the one we're interested in is `LaunchExp` a
 
 Now, if you start the same process with this tool, it takes that massive block of text and changes `LaunchExp:InApp` to `LaunchExp:InBrowser`, then starts the launcher with the modified data.
 
-![Logo](assets/logo/densegreenalpha.png)
+![Logo-Dark](assets/logo/densegreenalpha.png#gh-dark-mode-only)![Logo-White](assets/logo/denseblackalpha.png#gh-light-mode-only)
