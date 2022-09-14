@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -55,7 +55,7 @@ namespace DisableBetaApp
             string AppFolder = LocalAppDataEnv + "\\Roblox\\Versions\\" + ClientVersion;
             string RobloxExecutable =  AppFolder + "\\RobloxPlayerLauncher.exe";
 
-            // we need to set the key back to its old value temporarily to trick Roblox into think it's installed
+            // we need to set the key back to its old value temporarily to trick Roblox into thinking it's installed
             SetLaunchArg(RobloxExecutable);
 
             var startInfo = new ProcessStartInfo
