@@ -52,7 +52,8 @@ namespace DisableBetaApp
             var ClientVersion = GetVersion();
 
             string LocalAppDataEnv = System.Environment.GetEnvironmentVariable("LOCALAPPDATA");
-            string RobloxExecutable = LocalAppDataEnv + "\\Roblox\\Versions\\" + ClientVersion + "\\RobloxPlayerLauncher.exe";
+            string AppFolder = LocalAppDataEnv + "\\Roblox\\Versions\\" + ClientVersion;
+            string RobloxExecutable =  AppFolder + "\\RobloxPlayerLauncher.exe";
 
             // we need to set the key back to its old value temporarily to trick Roblox into think it's installed
             SetLaunchArg(RobloxExecutable);
@@ -70,17 +71,6 @@ namespace DisableBetaApp
             // now we can change the key to this program
             Console.Write("Setting startup registry keys...");
             SetLaunchArg(System.Environment.ProcessPath);
-
-            // if it updated, we need to remove the old process because Roblox is funky
-            string newVersion = GetVersion();
-            if (newVersion != ClientVersion)
-            {
-                // remove the folder if roblox didn't do it
-                if (Directory.Exists(ClientVersion))
-                {
-                    Directory.Delete(ClientVersion, true);
-                }
-            }
         }
 
         static void Main(string[] args)
