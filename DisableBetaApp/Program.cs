@@ -36,16 +36,25 @@ namespace DisableBetaApp
                 launchargs = "--play";
             }
 
+            // better workflow, grab onto the version number
+            // should fix some issues with updating
+            var ClientVersion = GetSubKey(
+                Registry.CurrentUser,
+                "SOFTWARE",
+                "ROBLOX Corporation",
+                "Environments",
+                "roblox-player"
+            ).GetValue("version");
+
             string LocalAppDataEnv = System.Environment.GetEnvironmentVariable("LOCALAPPDATA");
-            string[] RobloxExecutable = Directory.GetFiles(LocalAppDataEnv + "\\Roblox\\Versions", "RobloxPlayerLauncher.exe", SearchOption.AllDirectories);
-            string Exec = RobloxExecutable[0];
+            string RobloxExecutable = LocalAppDataEnv + "\\Roblox\\Versions\\" + ClientVersion + "\\RobloxPlayerLauncher.exe";
 
             // we need to set the key back to its old value temporarily to trick Roblox into think it's installed
-            SetLaunchArg(Exec);
+            SetLaunchArg(RobloxExecutable);
 
             var startInfo = new ProcessStartInfo
             {
-                FileName = Exec,
+                FileName = RobloxExecutable,
                 Arguments = launchargs,
                 UseShellExecute = true
             };
