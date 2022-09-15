@@ -56,7 +56,7 @@ namespace DisableBetaApp
         static string FindRoblox()
         {
             string ProgramFilesEnv = System.Environment.GetEnvironmentVariable("ProgramFiles(x86)");
-            string ProgramFilesFolder = LocalAppDataEnv + "\\Roblox\\Versions";
+            string ProgramFilesFolder = ProgramFilesEnv + "\\Roblox\\Versions";
             if (FindLauncherPath(ProgramFilesFolder) is string path)
             {
                 return path;
