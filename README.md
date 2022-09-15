@@ -1,11 +1,11 @@
-**CRITICAL: There is an issue with a few users not being to start Roblox after using this, dont run this app right now until I know whats causing this.**
+# CRITICAL: There is an issue with a few users not being to start Roblox after using this, dont run this app right now until I know whats causing this. Use at your own risk.
 
 To use, [download the latest Release](https://github.com/metatablecat/DisableBetaApp/raw/master/DisableBetaApp.exe) and run the program. This will install the web protocol directly.
 (Don't move the executable after you've done this, you'll break something)
 
 The executable is slightly large due to internal packages (NET 6 Standalone building isn't perfect, but I want anyone to be able to run it)
 
-## If Roblox updates, it undoes the patch because a new installer process gets started that cant be hooked onto, just run the BetaApp Disabler program again to reapply registry patches
+### If Roblox updates, it undoes the patch because a new installer process gets started that cant be hooked onto, just run the BetaApp Disabler program again to reapply registry patches
 
 ## Technical Explanation
 
