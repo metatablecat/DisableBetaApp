@@ -1,3 +1,5 @@
+**CRITICAL: There is an issue with a few users not being to start Roblox after using this, dont run this app right now until I know whats causing this.**
+
 To use, [download the latest Release](https://github.com/metatablecat/DisableBetaApp/raw/master/DisableBetaApp.exe) and run the program. This will install the web protocol directly.
 (Don't move the executable after you've done this, you'll break something)
 
